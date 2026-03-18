@@ -30,19 +30,19 @@ function InventoryCardView({ onEdit = () => {}, products }) {
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Retail:</span>
                   <span className="font-medium">
-                    ${formatPrice(retailPrice)}
+                    ₱{formatPrice(retailPrice)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Wholesale:</span>
                   <span className="font-medium">
-                    ${formatPrice(wholesalePrice)}
+                    ₱{formatPrice(wholesalePrice)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Purchase:</span>
                   <span className="font-medium">
-                    ${formatPrice(purchaseRate)}
+                    ₱{formatPrice(purchaseRate)}
                   </span>
                 </div>
               </div>

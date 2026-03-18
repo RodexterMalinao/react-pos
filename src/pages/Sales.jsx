@@ -218,7 +218,7 @@ function Sales() {
                 <div className="border-t pt-3 mt-3">
                   <div className="flex justify-between items-center font-bold mb-4">
                     <p>Total</p>
-                    <p>${formatPrice(calculateTotal())}</p>
+                    <p>₱{formatPrice(calculateTotal())}</p>
                   </div>
 
                   {showPayment ? (

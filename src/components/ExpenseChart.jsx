@@ -55,7 +55,7 @@ function ExpenseChart({ expenses }) {
               />
             ))}
           </Pie>
-          <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
+          <Tooltip formatter={(value) => `₱${value.toFixed(2)}`} />
           <Legend />
         </PieChart>
       </ResponsiveContainer>

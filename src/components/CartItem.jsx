@@ -29,11 +29,11 @@ function CartItem({
         <div className="flex-1">
           <p className="font-medium text-text-primary">{item.name}</p>
           <p className="text-sm text-text-secondary">
-            ${formatPrice(price)} x {item.quantity}
+            ₱{formatPrice(price)} x {item.quantity}
           </p>
           {item.discount > 0 && (
             <p className="text-sm text-success">
-              Discount: {item.discount}% ($
+              Discount: {item.discount}% (₱
               {formatPrice(price - discountedPrice)})
             </p>
           )}

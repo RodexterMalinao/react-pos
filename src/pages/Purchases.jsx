@@ -97,11 +97,11 @@ function Purchases() {
                         </p>
                       </div>
                       <p className="font-medium">
-                        ${purchase.totalCost.toFixed(2)}
+                        ₱{purchase.totalCost.toFixed(2)}
                       </p>
                     </div>
                     <div className="mt-1 text-sm text-gray-500">
-                      Quantity: {purchase.quantity} @ $
+                      Quantity: {purchase.quantity} @ ₱
                       {purchase.costPerUnit.toFixed(2)}/unit
                     </div>
                     {purchase.supplier && (
@@ -150,7 +150,7 @@ function Purchases() {
                           {purchase.productName}
                         </td>
                         <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
-                          ${purchase.totalCost.toFixed(2)}
+                          ₱{purchase.totalCost.toFixed(2)}
                         </td>
                       </tr>
                     ))}

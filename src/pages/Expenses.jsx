@@ -92,7 +92,7 @@ function Expenses() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-white rounded-lg shadow p-6">
           <h3 className="text-lg font-semibold mb-4">Monthly Total</h3>
-          <p className="text-3xl font-bold">${monthlyTotal.toFixed(2)}</p>
+          <p className="text-3xl font-bold">₱{monthlyTotal.toFixed(2)}</p>
         </div>
 
         <div className="bg-white rounded-lg shadow p-6">

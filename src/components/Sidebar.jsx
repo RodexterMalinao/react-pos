@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 // import { useState } from "react";
-import LogoIcon from "../assets/icon.svg";
-import LogoText from "../assets/order-up.svg";
+import LogoIcon from "../assets/adiwoosh.jpg";
 import lineSVG from "../assets/line.svg";
 
 export default function Sidebar() {
@@ -201,8 +200,8 @@ export default function Sidebar() {
           href="/"
           className="flex items-center justify-center sm:flex-col scale-75 sm:scale-100"
         >
-          <img src={LogoIcon} alt="Icon" className="m-[-10px_0_0_0] sm:m-0" />
-          <img src={LogoText} alt="OrderUp" className="sm:h-[25px] h-[30px]" />
+          <img src={LogoIcon} alt="Icon" />
+          {/* <img src={LogoText} alt="OrderUp" className="sm:h-[25px] h-[30px]" /> */}
         </a>
       </div>
       <nav

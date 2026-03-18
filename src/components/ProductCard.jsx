@@ -30,7 +30,7 @@ function ProductCard({ product, onAddToCart, billType }) {
         {description || "No description available"}
       </p>
       <div className="flex justify-between items-center mb-2">
-        <span className="text-lg font-bold">${formatPrice(price)}</span>
+        <span className="text-lg font-bold">₱{formatPrice(price)}</span>
         <span
           className={`text-sm ${
             quantity > 0 ? "text-green-600" : "text-red-600"

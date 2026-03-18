@@ -1,10 +1,17 @@
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
 import {
-  CurrencyDollarIcon,
   CubeIcon,
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
+
+import Icon from '@mdi/react';
+import { mdiCurrencyPhp } from '@mdi/js';
+
+const PhpIcon = () => (
+  <Icon path={mdiCurrencyPhp} size={1} />
+);
+
 
 function Dashboard() {
   const { products } = useSelector((state) => state.inventory);
@@ -25,8 +32,8 @@ function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <DashboardCard
           title="Today's Sales"
-          value={`$${todayTotal?.toFixed(2)}`}
-          icon={<CurrencyDollarIcon className="h-6 w-6" />}
+          value={`₱${todayTotal?.toFixed(2)}`}
+          icon={<PhpIcon className="h-6 w-6" />}
         />
         <DashboardCard
           title="Items in Stock"
@@ -84,7 +91,7 @@ function Dashboard() {
                           )}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          ${(sale.total || 0).toFixed(2)}
+                          ₱{(sale.total || 0).toFixed(2)}
                         </td>
                       </tr>
                     ))}
