@@ -1,5 +1,5 @@
 export const STORE_INFO = {
-  name: "OrderUp",
+  name: "Adiwoosh",
   address: "123 Main Street, City, State 12345",
   phone: "(555) 123-4567",
   email: "info@snapcash.com",

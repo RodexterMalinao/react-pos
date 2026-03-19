@@ -21,7 +21,7 @@ import eyeClose from "../assets/eyeclose.svg";
 import { updateProfilePictureUrl } from "../store/slices/userSlice";
 import triangle from "../assets/triangle.svg";
 import editIcon from "../assets/edit.svg";
-import illustartion from "../assets/illustration.png";
+import illustartion from "../assets/adiwoosh.jpg";
 import OtpInput from "react-otp-input";
 
 // eslint-disable-next-line react/prop-types
@@ -46,7 +46,7 @@ export default function LoginButton({ isCollapsed }) {
   const user = useSelector((state) => state.auth.user);
   const syncing = useSelector((state) => state.auth.syncing);
   const profilePictureUrl = useSelector(
-    (state) => state.userdata.profilePictureUrl
+    (state) => state.userdata.profilePictureUrl,
   );
   useEffect(() => {
     const checkSession = async () => {
@@ -55,6 +55,12 @@ export default function LoginButton({ isCollapsed }) {
         if (response.success) {
           dispatch(setUser(response.data));
           await dispatch(syncUserData(response.data.$id));
+        }
+        if (response.success) {
+          console.log("User has logged! ");
+        } else {
+          console.log("No user logged!");
+          setIsModalOpen(true);
         }
       } catch (error) {
         // Session check failed - user not logged in
@@ -130,7 +136,7 @@ export default function LoginButton({ isCollapsed }) {
         const response = await register(
           formData.email,
           formData.password,
-          formData.name
+          formData.name,
         );
         if (response.success) {
           setRegistrationData(response);
@@ -351,32 +357,34 @@ export default function LoginButton({ isCollapsed }) {
           <div className="flex items-center justify-center min-h-screen px-4">
             <div className="fixed inset-0 bg-[#ffffff7b] backdrop-blur-sm" />
             <div className="relative bg-white p-0 lg:max-w-[70%] max-w-full w-full h-[80vh] rounded-xl shadow-lg flex lg:flex-row flex-col items-center justify-center overflow-hidden">
-              <button
-                onClick={resetForm}
-                className="absolute top-3 right-3 w-10 h-10 flex items-center justify-center rounded-full text-black bg-white"
-              >
-                <span className="sr-only">Close</span>
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+              {user && (
+                <button
+                  onClick={resetForm}
+                  className="absolute top-3 right-3 w-10 h-10 flex items-center justify-center rounded-full text-black bg-white"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+                  <span className="sr-only">Close</span>
+                  <svg
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              )}
               <div className="flex flex-col gap-4 items-center justify-center lg:w-3/5 w-full">
                 <h2 className="text-center text-black text-5xl font-bold font-['Poppins']">
                   {showOTPInput
                     ? "Verify Email"
                     : isLogin
-                    ? "Login"
-                    : "Sign Up"}
+                      ? "Login"
+                      : "Sign Up"}
                 </h2>
 
                 {error && (
@@ -489,7 +497,7 @@ export default function LoginButton({ isCollapsed }) {
                                 if (
                                   formData.email &&
                                   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-                                    formData.email
+                                    formData.email,
                                   )
                                 ) {
                                   sendPasswordResetEmail(formData.email);
@@ -551,19 +559,19 @@ export default function LoginButton({ isCollapsed }) {
                   </form>
                 )}
               </div>
-              <div className="lg:flex hidden flex-col items-center justify-center w-2/5 bg-[#9747ff] h-full">
+              <div className="lg:flex hidden flex-col items-center justify-center w-2/5 bg-[#E0E0E0] h-full">
                 <img
                   src={illustartion}
                   alt="illustration"
                   className="w-auto h-3/5"
                 />
-                <div className="text-center text-white text-base font-bold font-poppins">
+                {/* <div className="text-center text-white text-base font-bold font-poppins">
                   Manage your whole business in 1 place!
                 </div>
                 <div className="pl-1 pr-1 mt-2 text-center text-white text-xs font-poppins leading-[15px]">
                   Order up is your one stop shop to get free of all the
                   difficult and complex business management.
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
